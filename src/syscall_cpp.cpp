@@ -9,14 +9,14 @@ void operator delete(void* ptr) {
     mem_free(ptr);
 }
 
-// za niti koje se ne extenduju iz thread vec im se dodeljuje koju fju izvrsavaju
+// za niti koje se ne extenduju iz thread vec im se dodeljuje koju f-ju izvrsavaju
 Thread::Thread(void (*body)(void *), void *arg) : myHandle(nullptr), body(body), arg(arg) {}
 
 Thread::~Thread() {
     delete myHandle;
     myHandle = nullptr;
 }
-// prvi put pokrene nit svaki sledeic put nema nikkavog efekta
+
 int Thread::start() {
     if (myHandle == nullptr) return thread_create(&myHandle, body, arg);
     return 0;
@@ -26,7 +26,7 @@ void Thread::dispatch() {
     thread_dispatch();
 }
 
-// telo fje koju ce da izvrsavaju sve niti koje su izvedene iz thread, tj navesce ih da izvrse run
+// telo f-je koju ce da izvrsavaju sve niti koje su izvedene iz thread, tj navesce ih da izvrse run
 void Thread::wrapper(void* arg) {
     //ova fja ce biti body za niti pravljene pomocu Thread()
     if (arg) {
@@ -35,11 +35,9 @@ void Thread::wrapper(void* arg) {
     }
 }
 
-// i ovde se nit prvo mora startovati pa ce tek onda poceti sa radom, tako da bi trebalo da je ok, dobice u arg this
-//i onda ce u wrapperu uraditi zapravo this->run() i tako ce izvrsavati sta treba
 Thread::Thread() : myHandle(nullptr), body(Thread::wrapper), arg(this) {}
 
-int Thread::sleep(time_t time) { //to do
+int Thread::sleep(time_t time) {
     return time_sleep(time);
 }
 
