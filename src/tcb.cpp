@@ -28,7 +28,6 @@ int TCB::createThread() {
     uint64* stack = (uint64*) Riscv::r_stack_a4();
     int retval;
 
-    //arg moze biti nullptr ako je fja bez argumenata
 
     *handle = new TCB(body, arg, stack);
     if (*handle != nullptr) {
