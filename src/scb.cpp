@@ -12,7 +12,6 @@ SCB::~SCB() {
     TCB* tcb = blockedQueue.remove();
     while (tcb) {
         tcb->setClosedSemaphore(true);
-        //ovde fali da je odblokirana nit(tcb->setBlocked(false)), pa zato verovatno nije radilo, ali ja sam pokrio u sem_close ovu petlju
         Scheduler::put(tcb);
         tcb = blockedQueue.remove();
     }
@@ -29,7 +28,6 @@ int SCB::signal() {
     return 0;
 }
 
-// da se vidi moze li da se uradi wait i da li ce posle val 0 na sem
 int SCB::tryWait() {
     int test = val - 1;
     if (test > 0) {
@@ -117,7 +115,7 @@ int SCB::semClose() {
         }
 
         delete handle;
-        handle = nullptr; //nece se vise otvarati isti sem??
+        handle = nullptr;
         return 0;
     }
 
@@ -178,9 +176,6 @@ void SCB::semaphoreTimerUpdate() {
         curr->val += deblocked;
         curr = curr->next;
     }
-    //treba proci svaki postojeci semafor tako da se moraju updateovati sem open i semclose
-    //blocked queue. time update
-    // povecati val semafora za povratnu vrednost fje iznad
 }
 
 uint64 SCB::timedWait(time_t timeout) {
