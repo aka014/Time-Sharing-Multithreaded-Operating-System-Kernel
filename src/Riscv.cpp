@@ -84,13 +84,11 @@ void Riscv::handleSyscall() {
         }
 
         case 0x41: {
-//            Riscv::_getc();
             MyConsole::consoleGetc();
             break;
         }
 
         case 0x42: {
-//            Riscv::_putc();
             MyConsole::consolePutc();
             break;
         }
@@ -117,7 +115,7 @@ void Riscv::handleSupervisorTrap() {
     else if (scause == EXTERNAL_HARDWARE_INT) handleConsoleInterrupt();
     else {
         printInt(r_scause());
-        stopEmulator(); //signali greske, tj treba videti sta ciniti sa greskom
+        stopEmulator(); //signali greske
     }
 
     TCB::running->fp = fp;
