@@ -76,7 +76,7 @@ private:
     bool closedSemaphore = false;
     bool semaphoreTimeout = 0;
 
-    uint64 fp = 0; //ovde cu upisivati sscratch tj sp u odnosu na koji mogu da relativno adresiram do registara
+    uint64 fp = 0; //ovde cu upisivati sscratch tj. sp u odnosu na koji mogu da relativno adresiram do sacuvanih registara
 
     time_t sleepTime = 0;
     time_t waitTime = -1;
@@ -84,7 +84,7 @@ private:
     friend class Riscv;
     friend class SleepingQueue;
 
-    static void threadWrapper(); //ovo je pocetna tacka rada za nit i odatle ide dalje i poziva funkciju koja joj je data da izvrava
+    static void threadWrapper(); //ovo je pocetna tacka rada za nit
 
     static void contextSwitch(Context *oldContext, Context *runningContext);
 
