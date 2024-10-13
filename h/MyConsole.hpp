@@ -11,7 +11,7 @@ public:
     static uint64 r_console_data();
     static void w_console_data(uint64 c);
 
-    //ove fje zovem u switchu
+    //ove f-je zovem u switch-u
     static void consolePutc();
     static char consoleGetc();
 
