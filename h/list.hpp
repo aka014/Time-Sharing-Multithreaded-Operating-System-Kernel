@@ -6,8 +6,6 @@
 #include "../lib/hw.h"
 #include "MemAllocator.hpp"
 
-/*nema potrebe da ima destruktor jer ce se svi elemetni u listi iskoristii vremenom*/
-
 template<typename T>
 class List
 {
@@ -65,7 +63,6 @@ public:
         }
     }
 
-    // ako nema elemenata vraca 0
     T *removeFirst()
     {
         if (!head) { return 0; }
