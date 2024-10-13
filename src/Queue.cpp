@@ -34,7 +34,7 @@ void Queue::insertSleep(TCB *data) {
     if (head) {
         Elem* prev = nullptr;
         Elem* curr = this->head;
-        //trazim gde treba ubaciti nit i kako projdme svaki element oduzimam za njegov broj perioda
+        //trazim gde treba ubaciti nit i kako prodjem svaki element oduzimam za njegov broj perioda
         while (curr && data->getSleepTime() > curr->data->getSleepTime()) {
             data->setSleepTime(data->getSleepTime() - curr->data->getSleepTime());
             prev = curr;
@@ -84,7 +84,7 @@ int Queue::semQueueTimerTick() {
 }
 
 void Queue::removeTCB(TCB *tcb) {
-    //moram i tail da updateujem
+    //moram i tail da update-ujem
     Elem* curr = this->head;
     Elem* prev = nullptr;
     while (curr && curr->data != tcb) {
