@@ -4,7 +4,7 @@
 #include "../h/MemAllocator.hpp"
 #include "../h/tcb.hpp"
 
-class TCB; //ovo mozda moze biti problematicno
+class TCB;
 
 class Queue {
 public:
@@ -25,7 +25,7 @@ public:
 
     TCB* peekFirst();
 
-    int semQueueTimerTick(); //vraca broj odblokiranih niti zbog timeouta
+    int semQueueTimerTick(); //vraca broj odblokiranih niti zbog timeout-a
 
 private:
 
