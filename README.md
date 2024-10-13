@@ -1,4 +1,4 @@
-# OS1-projekat
+# OS1 projekat 2024/2025
 
 ## Projekat iz predmeta Operativni sistemi 1
 
