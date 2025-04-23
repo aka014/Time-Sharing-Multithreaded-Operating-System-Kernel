@@ -10,4 +10,4 @@ Cela specifikacija projekta može se videti u PDF fajlu.
 
 The OS kernel has been developed specifically for the RISC-V architecture and is executed within the QEMU emulator. It does not rely on any external libraries, which means that it refrains from utilizing system calls provided by the host operating system. Instead, it handles tasks such as threads, memory allocation, semaphores, and interrupts entirely from the ground up.
 
-The entire project specification can be seen in the PDF file.
+The entire project specification is available in the PDF file.
